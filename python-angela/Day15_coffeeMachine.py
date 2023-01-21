@@ -40,7 +40,7 @@ def report():
     print(f'Water: {resources["water"]}ml')
     print(f'Milk: {resources["milk"]}ml')
     print(f'Coffee: {resources["coffee"]}g')
-    print(f'Money: ${profit}ml')
+    print(f'Money: ${profit}')
 
 def insert_coin():
     """Caculate inserted money"""
@@ -52,20 +52,19 @@ def insert_coin():
     return money
 
 def check_ingrediants(menu, money):
-    menu_cost = MENU[menu["cost"]]
+    menu_cost = MENU[menu]["cost"]
     menu_water = MENU[menu]["ingredients"]["water"]
     menu_milk = MENU[menu]["ingredients"]["milk"]
     menu_coffee = MENU[menu]["ingredients"]["coffee"]
     
     if money < menu_cost:
         print("Sorry, that's not enough money. Money refunded.")
-        machine()
     else:
-        if menu_water < resources["water"]:
+        if menu_water > resources["water"]:
             print("Sorry, there is not enough water.")
-        elif menu_milk < resources["milk"]:
+        elif menu_milk > resources["milk"]:
             print("Sorry, there is not enough milk.")
-        elif menu_coffee < resources["coffee"]:
+        elif menu_coffee > resources["coffee"]:
             print("Sorry, there is not enough coffee.")
         else:
             print(f'Here is ${money - menu_cost} in change.')
@@ -85,3 +84,5 @@ def machine():
     else:
         print("Please type your order again!")
     machine()
+
+machine()
