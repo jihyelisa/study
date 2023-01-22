@@ -35,16 +35,9 @@ resources = {
 
 
 
-def report():
-    """Print currently remained ingrediants and money if you enter 'report'"""
-    print(f'Water: {resources["water"]}ml')
-    print(f'Milk: {resources["milk"]}ml')
-    print(f'Coffee: {resources["coffee"]}g')
-    print(f'Money: ${profit}')
-
 
 def insert_coin():
-    """Calculate inserted money"""
+    """Calculate inserted money."""
     print("Please insert coins.")
     quarter = int(input("how many quarters?: "))
     dime = int(input("how many dimes?: "))
@@ -55,8 +48,8 @@ def insert_coin():
 
 
 def money_enough(choice, inserted_money):
-    cost = MENU[choice]["cost"]
-    if inserted_money < cost:
+    menu_cost = MENU[choice]["cost"]
+    if inserted_money < menu_cost:
         print("Sorry, that's not enough money. Money refunded.")
         return False
     else:
@@ -64,23 +57,30 @@ def money_enough(choice, inserted_money):
 
 
 def ingrediants_enough(choice):
-    """check if ingrediants are enough"""
-    for ingrediant in MENU[choice]["ingredients"]:
-        if MENU[choice]["ingredients"][ingrediant] > resources[ingrediant]:
+    """Check if ingrediants are enough."""
+    menu_ingrediant = MENU[choice]["ingredients"]
+    for ingrediant in menu_ingrediant:
+        if menu_ingrediant[ingrediant] > resources[ingrediant]:
             print(f'Sorry, there is not enough {ingrediant}.')
             return False
     return True
     
 
-def update(choice):
-    """update the current ingrediants"""
-    for ingrediant in MENU[choice]["ingredients"]:
-        resources[ingrediant] -= MENU[choice]["ingredients"][ingrediant]
-    
-    water = MENU[choice]["ingredients"]["water"]
-    milk = MENU[choice]["ingredients"]["milk"]
-    coffee = MENU[choice]["ingredients"]["coffee"]
+def update_ingrediants(choice):
+    """Update the current ingrediants and profit."""
+    global MENU, profit
+    menu_ingrediant = MENU[choice]["ingredients"]
+    menu_cost = MENU[choice]["cost"]
+    for ingrediant in menu_ingrediant:
+        resources[ingrediant] -= menu_ingrediant[ingrediant]
+    profit += menu_cost
    
+
+def report():
+    """Print currently remained ingrediants and money if you enter 'report'."""
+    for item in resources:
+        print(f'{item.title()}: {resources[item]}ml')
+    print(f'Money: ${profit}')
 
 
 
@@ -88,21 +88,20 @@ def update(choice):
 
 def machine():
     choice = input("What would you like? (espresso/latte/cappuccino): ")
+    choice = choice.lower()
     
-    if choice == "espresso" or "latte" or "cappuccino":
-        inserted_money = insert_coin()
-        if money_enough(choice, inserted_money):
-            if ingrediants_enough(choice):
+    if choice == "espresso" or choice == "latte" or choice == "cappuccino":
+        if ingrediants_enough(choice):
+            inserted_money = insert_coin()
+            if money_enough(choice, inserted_money):
+                update_ingrediants(choice)
                 change = inserted_money - MENU[choice]["cost"]
                 print(f'Here is ${change} in change.')
                 print(f'Here is your {choice} ☕️. Enjoy!')
     
     elif choice == "report":
         report()
-        return
-    
     else:
         print("Please type your order again!")
     machine()
-
 machine()
