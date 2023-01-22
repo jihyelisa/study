@@ -42,46 +42,67 @@ def report():
     print(f'Coffee: {resources["coffee"]}g')
     print(f'Money: ${profit}')
 
+
 def insert_coin():
-    """Caculate inserted money"""
+    """Calculate inserted money"""
+    print("Please insert coins.")
     quarter = int(input("how many quarters?: "))
     dime = int(input("how many dimes?: "))
     nickle = int(input("how many nickles?: "))
     penny = int(input("how many pennies?: "))
-    money = (quarter*25 + dime*10 + nickle*5 + penny) / 100
-    return money
+    total = (quarter*25 + dime*10 + nickle*5 + penny) / 100
+    return total
 
-def check_ingrediants(menu, money):
-    menu_cost = MENU[menu]["cost"]
-    menu_water = MENU[menu]["ingredients"]["water"]
-    menu_milk = MENU[menu]["ingredients"]["milk"]
-    menu_coffee = MENU[menu]["ingredients"]["coffee"]
-    
-    if money < menu_cost:
+
+def money_enough(choice, inserted_money):
+    cost = MENU[choice]["cost"]
+    if inserted_money < cost:
         print("Sorry, that's not enough money. Money refunded.")
+        return False
     else:
-        if menu_water > resources["water"]:
-            print("Sorry, there is not enough water.")
-        elif menu_milk > resources["milk"]:
-            print("Sorry, there is not enough milk.")
-        elif menu_coffee > resources["coffee"]:
-            print("Sorry, there is not enough coffee.")
-        else:
-            print(f'Here is ${money - menu_cost} in change.')
-            print(f'Here is your {menu} ☕️. Enjoy!')
+        return True
+
+
+def ingrediants_enough(choice):
+    """check if ingrediants are enough"""
+    for ingrediant in MENU[choice]["ingredients"]:
+        if MENU[choice]["ingredients"][ingrediant] > resources[ingrediant]:
+            print(f'Sorry, there is not enough {ingrediant}.')
+            return False
+    return True
+    
+
+def update(choice):
+    """update the current ingrediants"""
+    for ingrediant in MENU[choice]["ingredients"]:
+        resources[ingrediant] -= MENU[choice]["ingredients"][ingrediant]
+    
+    water = MENU[choice]["ingredients"]["water"]
+    milk = MENU[choice]["ingredients"]["milk"]
+    coffee = MENU[choice]["ingredients"]["coffee"]
+   
+
+
 
 
 
 def machine():
     choice = input("What would you like? (espresso/latte/cappuccino): ")
-
+    
     if choice == "espresso" or "latte" or "cappuccino":
-        print("Please insert coins.")
         inserted_money = insert_coin()
-        check_ingrediants(choice, inserted_money)
+        if money_enough(choice, inserted_money):
+            if ingrediants_enough(choice):
+                change = inserted_money - MENU[choice]["cost"]
+                print(f'Here is ${change} in change.')
+                print(f'Here is your {choice} ☕️. Enjoy!')
+    
     elif choice == "report":
         report()
+        return
+    
     else:
         print("Please type your order again!")
     machine()
+
 machine()
