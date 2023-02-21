@@ -1,1 +1,2 @@
-# Repository for my Python study files
+# About
+Repository for my Python study files
