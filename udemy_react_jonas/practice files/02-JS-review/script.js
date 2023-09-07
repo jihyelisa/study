@@ -147,6 +147,7 @@ const book = getBook(1);
 
 /////////////////////////
 ///// Destructuring /////
+/////////////////////////
 
 // const title = book.title;
 // const author = book.author;
@@ -165,6 +166,7 @@ console.log(otherGenres);
 
 ///////////////////////////
 ///// Spread Operator /////
+///////////////////////////
 
 // const newGenres = [genres, "epic fantasy"];
 // console.log(newGenres);
