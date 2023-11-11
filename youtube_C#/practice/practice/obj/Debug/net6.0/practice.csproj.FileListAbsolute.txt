@@ -1,0 +1,14 @@
+D:\study\C#\practice\practice\bin\Debug\net6.0\practice.exe
+D:\study\C#\practice\practice\bin\Debug\net6.0\practice.deps.json
+D:\study\C#\practice\practice\bin\Debug\net6.0\practice.runtimeconfig.json
+D:\study\C#\practice\practice\bin\Debug\net6.0\practice.dll
+D:\study\C#\practice\practice\bin\Debug\net6.0\practice.pdb
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.GeneratedMSBuildEditorConfig.editorconfig
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.AssemblyInfoInputs.cache
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.AssemblyInfo.cs
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.csproj.CoreCompileInputs.cache
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.dll
+D:\study\C#\practice\practice\obj\Debug\net6.0\refint\practice.dll
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.pdb
+D:\study\C#\practice\practice\obj\Debug\net6.0\practice.genruntimeconfig.cache
+D:\study\C#\practice\practice\obj\Debug\net6.0\ref\practice.dll
