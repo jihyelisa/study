@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch04_18.cpp">
+    <ClCompile Include="ch04_19_dynamic_memory_allocation.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
