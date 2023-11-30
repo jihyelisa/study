@@ -15,7 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch04_19_dynamic_memory_allocation.cpp">
+    <ClInclude Include="config.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ch05_04_structure_array.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
