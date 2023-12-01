@@ -22,7 +22,8 @@
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch05_04_structure_array.cpp" />
+    <ClCompile Include="ch06_02_function.cpp" />
+    <ClCompile Include="ch06_02_main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
