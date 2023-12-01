@@ -11,7 +11,9 @@ typedef struct sam
 	char MPhoneNum[20];
 } SAM;
 
-int TotalCalculation(int jumsu[], int num); //함수 선언
+int TotalCalculation(const int jumsu[], const int num); //함수 선언
+// const?
+// 함수 안에서 값을 사용만 할 뿐 변경하지 않을 것임
 
 #else // 정의되어 있다면
 // 아무것도 실행하지 말아라

@@ -1,6 +1,6 @@
 #include "config.h"
 
-int TotalCalculation(int jumsu[], int num)
+int TotalCalculation(const int jumsu[], const int num) // jumsu와 num을 위한 메모리 공간이 새로 확보됨
 {
 	int tot = 0, i;
 
@@ -15,5 +15,5 @@ int TotalCalculation(int jumsu[], int num)
 		tot += jumsu[i];
 	}
 
-	return tot;
+	return tot; // return을 만나면 함수를 위해 확보된 메모리 공간들이 해제됨
 }

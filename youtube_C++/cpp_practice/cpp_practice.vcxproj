@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ch08_course.h" />
+    <ClInclude Include="ch08_IntSample.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch06_02_function.cpp" />
-    <ClCompile Include="ch06_02_main.cpp" />
+    <ClCompile Include="ch08_course_get_set.cpp" />
+    <ClCompile Include="ch08_course_main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

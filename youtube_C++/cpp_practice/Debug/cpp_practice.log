@@ -1,5 +1,2 @@
-﻿  ch06_02_function.cpp
-  ch06_02_main.cpp
-D:\study\youtube_C++\cpp_practice\ch06_02_main.cpp(7,8): warning C4101: 'aver' :참조되지 않은 지역 변수입니다.
-  코드를 생성하고 있습니다...
+﻿  ch08_course_main.cpp
   cpp_practice.vcxproj -> D:\study\youtube_C++\Debug\cpp_practice.exe
