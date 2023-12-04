@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch08_course_get_set.cpp">
+    <ClCompile Include="ch09_01_student_constructure.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ch08_course_main.cpp">
+    <ClCompile Include="ch09_01_student_main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,6 +30,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ch08_course.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ch09_01_student.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
