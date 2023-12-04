@@ -8,6 +8,8 @@ class Student
 {
 public:
 	Student(); // 생성자, constructor
+	Student(const int s1, const int s2, const int s3); // 파라미터가 있는 생성자
+	~Student();
 	void setScore(const int s1, const int s2, const int s3);
 	void ShowScore();
 	void SumAverage();

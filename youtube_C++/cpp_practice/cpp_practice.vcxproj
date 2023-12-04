@@ -22,11 +22,13 @@
     <ClInclude Include="ch08_course.h" />
     <ClInclude Include="ch08_IntSample.h" />
     <ClInclude Include="ch09_01_student.h" />
+    <ClInclude Include="ch11_03_a.h" />
+    <ClInclude Include="ch11_02_str.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch09_01_student_constructure.cpp" />
-    <ClCompile Include="ch09_01_student_main.cpp" />
+    <ClCompile Include="ch11_03_a.cpp" />
+    <ClCompile Include="ch11_03_protected.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
