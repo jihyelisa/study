@@ -25,11 +25,12 @@
     <ClInclude Include="ch11_03_a.h" />
     <ClInclude Include="ch11_02_str.h" />
     <ClInclude Include="ch11_07_conTest.h" />
+    <ClInclude Include="ch12_05_geometric.h" />
+    <ClInclude Include="ch13_06_time.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch11_07_inheritance_constructure.cpp" />
-    <ClCompile Include="ch_11_07_conTest.cpp" />
+    <ClCompile Include="ch14_06_exception_class.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

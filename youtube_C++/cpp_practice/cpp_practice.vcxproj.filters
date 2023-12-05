@@ -36,12 +36,15 @@
     <ClInclude Include="ch11_07_conTest.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="ch12_05_geometric.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ch13_06_time.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch11_07_inheritance_constructure.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ch_11_07_conTest.cpp">
+    <ClCompile Include="ch14_06_exception_class.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
