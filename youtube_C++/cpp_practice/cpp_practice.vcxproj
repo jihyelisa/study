@@ -24,11 +24,12 @@
     <ClInclude Include="ch09_01_student.h" />
     <ClInclude Include="ch11_03_a.h" />
     <ClInclude Include="ch11_02_str.h" />
+    <ClInclude Include="ch11_07_conTest.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ch11_03_a.cpp" />
-    <ClCompile Include="ch11_03_protected.cpp" />
+    <ClCompile Include="ch11_07_inheritance_constructure.cpp" />
+    <ClCompile Include="ch_11_07_conTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
