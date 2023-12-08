@@ -1,8 +1,11 @@
 #ifndef _ZOO_H_
 #define _ZOO_H_
 
+#include <exception>
 #include <iostream>
 #include <string>
+#include <list>
+#include <vector>
 using namespace std;
 
 class Animal

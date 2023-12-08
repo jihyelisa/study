@@ -1,6 +1,5 @@
 #include "zoo.h"
 
-
 Animal::Animal()
 {
 	cout << "Animal Constructor" << endl;
@@ -62,3 +61,10 @@ void Cat::makeSound()
 {
 	cout << "Meow! Meow!" << endl;
 }
+
+class runtime_error : public exception {
+public:
+	explicit runtime_error(const string& message);
+
+	explicit runtime_error(const char* message);
+};

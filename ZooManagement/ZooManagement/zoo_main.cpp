@@ -1,6 +1,4 @@
 #include "zoo.h"
-#include <list>
-#include <vector>
 
 int main()
 {
@@ -60,8 +58,17 @@ int main()
 
 
 	// runtime_error 예외처리 try-catch 블록
+	cout << "\n*** runtime_error try-catch ***" << endl;
 
-
+	try
+	{
+		locale loc("test");
+	}
+	catch (const exception& e)
+	{
+		cerr << "Caught: " << e.what() << endl;
+		cerr << "Type: " << typeid(e).name() << endl;
+	}
 
 	// 프로그램 종료 시에 동적 객체들 메모리 해제
 	cout << "\n*** delete animalPointerList ***" << endl;
