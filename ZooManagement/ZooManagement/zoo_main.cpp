@@ -72,9 +72,9 @@ int main()
 
 	// 프로그램 종료 시에 동적 객체들 메모리 해제
 	cout << "\n*** delete animalPointerList ***" << endl;
-	for (Animal* animalObj : animalPointerList)
+	for (ListIter = animalPointerList.begin(); ListIter != animalPointerList.end(); ListIter++)
 	{
-		delete animalObj;
+		delete *ListIter;
 	}
 
 	return 0;
