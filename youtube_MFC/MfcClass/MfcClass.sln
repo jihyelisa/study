@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SdiSeq", "SdiSeq\SdiSeq.vcxproj", "{14266FCA-7901-4908-ADD4-3D0706774FA3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeyMove", "KeyMove\KeyMove.vcxproj", "{08E64156-3FD3-4C4D-83E3-1F2E08FC9F4E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MouseMsg", "MouseMsg\MouseMsg.vcxproj", "{F0E71736-BAB2-4D8B-BD5C-D91DB94A100A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MouseCombi", "MouseCombi\MouseCombi.vcxproj", "{2B4A6262-F747-4A3F-9D92-E170CA585E8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14266FCA-7901-4908-ADD4-3D0706774FA3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14266FCA-7901-4908-ADD4-3D0706774FA3}.Debug|Win32.Build.0 = Debug|Win32
+		{14266FCA-7901-4908-ADD4-3D0706774FA3}.Release|Win32.ActiveCfg = Release|Win32
+		{14266FCA-7901-4908-ADD4-3D0706774FA3}.Release|Win32.Build.0 = Release|Win32
+		{08E64156-3FD3-4C4D-83E3-1F2E08FC9F4E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08E64156-3FD3-4C4D-83E3-1F2E08FC9F4E}.Debug|Win32.Build.0 = Debug|Win32
+		{08E64156-3FD3-4C4D-83E3-1F2E08FC9F4E}.Release|Win32.ActiveCfg = Release|Win32
+		{08E64156-3FD3-4C4D-83E3-1F2E08FC9F4E}.Release|Win32.Build.0 = Release|Win32
+		{F0E71736-BAB2-4D8B-BD5C-D91DB94A100A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F0E71736-BAB2-4D8B-BD5C-D91DB94A100A}.Debug|Win32.Build.0 = Debug|Win32
+		{F0E71736-BAB2-4D8B-BD5C-D91DB94A100A}.Release|Win32.ActiveCfg = Release|Win32
+		{F0E71736-BAB2-4D8B-BD5C-D91DB94A100A}.Release|Win32.Build.0 = Release|Win32
+		{2B4A6262-F747-4A3F-9D92-E170CA585E8F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2B4A6262-F747-4A3F-9D92-E170CA585E8F}.Debug|Win32.Build.0 = Debug|Win32
+		{2B4A6262-F747-4A3F-9D92-E170CA585E8F}.Release|Win32.ActiveCfg = Release|Win32
+		{2B4A6262-F747-4A3F-9D92-E170CA585E8F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
