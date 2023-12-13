@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "CTrackWnd.h"
 
 
 class CMouseCombiView : public CView
@@ -17,6 +18,9 @@ public:
 
 // 작업입니다.
 public:
+	CPoint		m_ptItemText;
+	bool		m_bDragFlag;
+	CTrackWnd	m_wndTrack;
 
 // 재정의입니다.
 public:
@@ -40,6 +44,13 @@ protected:
 // 생성된 메시지 맵 함수
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	afx_msg void OnPaint();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 };
 
 #ifndef _DEBUG  // MouseCombiView.cpp의 디버그 버전

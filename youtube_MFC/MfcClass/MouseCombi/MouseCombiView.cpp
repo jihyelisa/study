@@ -29,6 +29,9 @@ BEGIN_MESSAGE_MAP(CMouseCombiView, CView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
 	ON_WM_LBUTTONDBLCLK()
+	ON_WM_PAINT()
+	ON_WM_MOUSEMOVE()
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 // CMouseCombiView 생성/소멸
@@ -110,7 +113,12 @@ CMouseCombiDoc* CMouseCombiView::GetDocument() const // 디버그되지 않은 버전은 �
 
 void CMouseCombiView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (point.x >= m_ptItemText.x - 32 && point.x <= m_ptItemText.x + 32 &&
+		point.y >= m_ptItemText.y - 32 && point.y <= m_ptItemText.y + 32)
+	{
+		m_bDragFlag = true;
+		RedrawWindow();
+	}
 
 	CView::OnLButtonDown(nFlags, point);
 }
@@ -118,7 +126,13 @@ void CMouseCombiView::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CMouseCombiView::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (m_bDragFlag)
+	{
+		m_bDragFlag = false;
+		m_ptItemText = point;
+		RedrawWindow();
+		ReleaseCapture(); // 화면 밖으로도 드래그 가능하도록 함
+	}
 
 	CView::OnLButtonUp(nFlags, point);
 }
@@ -129,4 +143,47 @@ void CMouseCombiView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
 
 	CView::OnLButtonDblClk(nFlags, point);
+}
+
+
+void CMouseCombiView::OnPaint()
+{
+	CPaintDC dc(this); // device context for painting
+	
+	if (m_bDragFlag)
+		dc.TextOut(10, 10, _T("DRAG"));
+	else
+		dc.TextOut(10, 10, _T("----"));
+
+	dc.TextOut(m_ptItemText.x, m_ptItemText.y, _T("내 컴퓨터"));
+}
+
+
+void CMouseCombiView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	if (m_bDragFlag)
+	{
+		if (point.x >= 0 && point.y >= 0)
+		{
+			m_ptItemText = point;
+			RedrawWindow();
+		}
+		else
+			m_bDragFlag = false;
+	}
+
+	CView::OnMouseMove(nFlags, point);
+}
+
+
+int CMouseCombiView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	m_wndTrack.Create(_T("STATIC"), _T("TRACK TEST"),
+					WS_CHILD | WS_VISIBLE | WS_BORDER | SS_NOTIFY,
+					CRect(100, 10, 250, 160), this, 1234);
+
+	return 0;
 }

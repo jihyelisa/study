@@ -1,5 +1,7 @@
-﻿  MouseMsgView.cpp
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
+﻿  stdafx.cpp
+  MouseMsgView.cpp
+  MouseMsgDoc.cpp
   MouseMsg.cpp
+  MainFrm.cpp
+  코드를 생성하고 있습니다...
   MouseMsg.vcxproj -> D:\study\youtube_MFC\MfcClass\Debug\MouseMsg.exe
