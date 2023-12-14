@@ -28,9 +28,6 @@
     <None Include="res\Toolbar.bmp">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="C:\Users\user\Downloads\sample-image.jpg">
-      <Filter>리소스 파일</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BmpDisplayDemo.h">

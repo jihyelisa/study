@@ -94,7 +94,6 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="C:\Users\user\Downloads\sample-image.jpg" />
     <None Include="ReadMe.txt" />
     <None Include="res\BmpDisplayDemo.ico" />
     <None Include="res\BmpDisplayDemo.rc2" />

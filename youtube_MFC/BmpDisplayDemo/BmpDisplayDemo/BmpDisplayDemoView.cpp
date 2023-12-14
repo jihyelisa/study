@@ -109,20 +109,45 @@ void CBmpDisplayDemoView::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 
+	//CDC MemDC;
+	//BITMAP bmpInfo;
+
+	//// 위의 화면 CPaintDC와 호환되는 메모리 DC 생성
+	//MemDC.CreateCompatibleDC(&dc);
+
+	//// 비트맵 리소스 로드
+	//CBitmap bmp;
+	//CBitmap* pOldBmp = NULL;
+	//bmp.LoadBitmap(IDB_Test_Image);
+	//
+	//// 로드된 비트맵의 정보 가져옴
+	//bmp.GetBitmap(&bmpInfo);
+
+	//// 메모리 DC에 선택
+	//pOldBmp = MemDC.SelectObject(&bmp);
+
+	//// 메모리 DC에 들어있는 비트맵을 화면 DC로 복사하여 출력
+	//dc.BitBlt(200, 200, 250, 300, &MemDC, 350, 200, SRCCOPY);
+
+
 	// 로드할 이미지 경로
-	CString strImagePath = _T("sample-image.jpg");
+	CString strImagePath = _T("res/sample-image.jpg");
 
 	// 이미지 파일 로드
-	CImage Image;
-	HRESULT hResult = Image.Load(strImagePath);
+	CImage image;
+	HRESULT hResult = image.Load(strImagePath);
 	if (FAILED(hResult))
 	{
-		CString strtmp = _T("ERROR: Failed to load");
+		CString strtmp = _T("ERROR: Failed to load ");
 		strtmp += strImagePath + _T("\n");
 		TRACE(strtmp);
 		return;
 	}
 
+	CRect rect;
+	GetClientRect(&rect);
+
 	// 화면 DC에 출력
-	Image.BitBlt(dc.m_hDC, 0, 0);
+	// image.BitBlt(dc.m_hDC, 10, 10);
+	image.StretchBlt(dc, 10, 10, 500, 700, SRCCOPY);
 }
