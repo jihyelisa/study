@@ -4,6 +4,7 @@
 
 #pragma once
 #include "afxwin.h"
+#include "afxcmn.h"
 
 
 // CLogonDemoDlg 대화 상자
@@ -48,4 +49,11 @@ public:
 	CString m_strInput;
 	afx_msg void OnBnClickedButtonInsertstring();
 	afx_msg void OnBnClickedButtonAddstring();
+	afx_msg void OnBnClickedButtondelete();
+	afx_msg void OnBnClickedButtonFind();
+	afx_msg void OnLbnSelchangeList1();
+	CString m_str_selected;
+	CSpinButtonCtrl m_spin;
+	CProgressCtrl m_progress;
+	afx_msg void OnUpdateEditValue();
 };

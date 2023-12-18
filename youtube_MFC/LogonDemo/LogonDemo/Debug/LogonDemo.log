@@ -1,7 +1,7 @@
-﻿빌드 시작: 2023-12-14 오후 2:49:12
+﻿빌드 시작: 2023-12-15 오전 10:48:33
      1>2 노드의 "D:\study\youtube_MFC\LogonDemo\LogonDemo\LogonDemo.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
-         "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\LogonDemo.unsuccessfulbuild"을(를) 만들고 있습니다.
+         "Debug\LogonDemo.unsuccessfulbuild"에 연결(touching)하고 있습니다.
        ClCompile:
          모든 출력이 최신 상태입니다.
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\LogonDemo.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt LogonDemoDlg.cpp
@@ -29,4 +29,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:00.42
+경과 시간: 00:00:00.45

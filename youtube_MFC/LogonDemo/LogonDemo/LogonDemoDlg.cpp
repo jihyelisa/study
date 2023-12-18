@@ -56,6 +56,7 @@ CLogonDemoDlg::CLogonDemoDlg(CWnd* pParent /*=NULL*/)
 	, m_bUpdate(FALSE)
 	, m_bSystem(FALSE)
 	, m_strInput(_T(""))
+	, m_str_selected(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -70,6 +71,9 @@ void CLogonDemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_Check_System, m_bSystem);
 	DDX_Control(pDX, IDC_LIST1, m_List);
 	DDX_Text(pDX, IDC_Edit_Input, m_strInput);
+	DDX_Text(pDX, IDC_Static_Selected, m_str_selected);
+	DDX_Control(pDX, IDC_Spin_Value, m_spin);
+	DDX_Control(pDX, IDC_PROGRESS, m_progress);
 }
 
 BEGIN_MESSAGE_MAP(CLogonDemoDlg, CDialogEx)
@@ -83,6 +87,10 @@ BEGIN_MESSAGE_MAP(CLogonDemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_Check_Auto, &CLogonDemoDlg::OnBnClickedCheckAuto)
 	ON_BN_CLICKED(IDC_Button_Insertstring, &CLogonDemoDlg::OnBnClickedButtonInsertstring)
 	ON_BN_CLICKED(IDC_Button_Addstring, &CLogonDemoDlg::OnBnClickedButtonAddstring)
+	ON_BN_CLICKED(IDC_Button_delete, &CLogonDemoDlg::OnBnClickedButtondelete)
+	ON_BN_CLICKED(IDC_Button_Find, &CLogonDemoDlg::OnBnClickedButtonFind)
+	ON_LBN_SELCHANGE(IDC_LIST1, &CLogonDemoDlg::OnLbnSelchangeList1)
+	ON_EN_UPDATE(IDC_EDIT1, &CLogonDemoDlg::OnUpdateEditValue)
 END_MESSAGE_MAP()
 
 
@@ -121,6 +129,14 @@ BOOL CLogonDemoDlg::OnInitDialog()
 	// 체크박스 비활성화
 	GetDlgItem(IDC_Check_Update)->EnableWindow(FALSE);
 	GetDlgItem(IDC_Check_System)->EnableWindow(FALSE);
+
+	// 프로그레스 컨트롤 초기화
+	m_progress.SetRange(0, 100);
+	m_progress.SetPos(50);
+
+	// 스핀 컨트롤 초기화
+	m_spin.SetRange(0, 100);
+	m_spin.SetPos(50);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -256,4 +272,55 @@ void CLogonDemoDlg::OnBnClickedButtonAddstring()
 	
 	m_strInput = _T("");
 	UpdateData(FALSE);
+}
+
+
+void CLogonDemoDlg::OnBnClickedButtondelete()
+{
+	int selectedIndex = m_List.GetCurSel();
+
+	if (selectedIndex != -1)
+		m_List.DeleteString(selectedIndex);
+}
+
+
+void CLogonDemoDlg::OnBnClickedButtonFind()
+{
+	UpdateData();
+
+	CString strTmp = _T(""), strFind = _T("");
+	int nIndex = m_List.FindString(-1, m_strInput);
+	
+	if (nIndex != LB_ERR)
+	{
+		m_List.SetCurSel(nIndex);
+		m_List.GetText(nIndex, strFind);
+		strTmp.Format(_T("%d:%s"), nIndex, strFind);
+		AfxMessageBox(strTmp);
+	}
+	else
+	{
+		AfxMessageBox(_T("일치하는 항목을 찾을 수 없습니다."));
+	}
+}
+
+
+void CLogonDemoDlg::OnLbnSelchangeList1()
+{
+	int nIndex = m_List.GetCurSel();
+	CString selectedText;
+	m_List.GetText(nIndex, selectedText);
+
+	m_str_selected = selectedText;
+	UpdateData(FALSE);
+}
+
+
+void CLogonDemoDlg::OnUpdateEditValue()
+{
+	if (m_spin.GetSafeHwnd())
+	{
+		int nPos = m_spin.GetPos();
+		m_progress.SetPos(nPos);
+	}
 }
