@@ -153,8 +153,7 @@ HCURSOR CWorkerThreadDemoDlg::OnQueryDragIcon()
 }
 
 
-
-void CWorkerThreadDemoDlg::OnBnClickedButtonRunnotepad()
+UINT ThreadWaitNotepad(LPVOID pParam)
 {
 	TCHAR szWinPath[MAX_PATH];
 	::GetWindowsDirectory(szWinPath, MAX_PATH);
@@ -173,5 +172,17 @@ void CWorkerThreadDemoDlg::OnBnClickedButtonRunnotepad()
 	if (::ShellExecuteEx(&sei))
 	{
 		::WaitForSingleObject(sei.hProcess, INFINITE);
+		AfxMessageBox(_T("메모장이 종료되었습니다."));
 	}
+
+	return 0;
+}
+
+
+void CWorkerThreadDemoDlg::OnBnClickedButtonRunnotepad()
+{
+	CWinThread* pThread = AfxBeginThread(ThreadWaitNotepad, NULL);
+
+	if(pThread == NULL)
+		AfxMessageBox(_T("ERROR: Failed to begin worker-thread!"));
 }
