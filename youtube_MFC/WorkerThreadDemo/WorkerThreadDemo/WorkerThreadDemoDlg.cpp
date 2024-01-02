@@ -183,6 +183,8 @@ void CWorkerThreadDemoDlg::OnBnClickedButtonRunnotepad()
 {
 	CWinThread* pThread = AfxBeginThread(ThreadWaitNotepad, NULL);
 
+
+
 	if(pThread == NULL)
 		AfxMessageBox(_T("ERROR: Failed to begin worker-thread!"));
 }
